@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML API</title>
+</head>
+<body>
+   
+    <div class="container">
+        <!-- code here -->
+        <div class="card">
+            <div class="card-image">	
+                <h2 class="card-heading">
+                    Breast Cancer Classification
+                </h2>
+            </div>
+            <form class="card-form" action="{{ url_for('predict')}}" method="POST">
+                <div class="input">
+                    <input name="Clump" type="number" step="any" min="1" max="10"  class="input-field" required/>
+                    <label  class="input-label"> Clump</label>
+                </div>
+                
+                <div class="input">
+                    <input name="UniCell_Size" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">UniCell_Size</label>
+                </div>
+                
+                <div class="input">
+                    <input name="Uni_CellShape" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">Uni_CellShape</label>
+                </div>
+
+                <div class="input">
+                    <input name="MargAdh" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">MargAdh</label>
+                </div>
+                
+                <div class="input">
+                    <input name="SEpith" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">SEpith</label>
+                </div>
+
+                <div class="input">
+                    <input name="BareN" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">BareN</label>
+                </div>
+
+                <div class="input">
+                    <input name="BChromatin" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">BChromatin</label>
+                </div>
+
+                <div class="input">
+                    <input name="NoemN" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">NoemN</label>
+                </div>
+
+                <div class="input">
+                    <input name="Mitoses" type="number" step="any" min="1" max="10" class="input-field" required/>
+                    <label  class="input-label">Mitoses</label>
+                </div>
+
+                <div class="action">
+                    <button type="submit" class="action-button">Predict</button>
+                </div>
+            </form>
+
+            <center><p style="color: rgb(0, 139, 19); font-weight: bold;">{{ prediction }}</p>
+		<img src="{{ image }}" alt="{{ prediction }}">
+</center>
+        </div>
+    </div>
+    
+</body>
+</html>
